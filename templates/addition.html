@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+	<div class="add">
+		<form id="add-ads" action="/addition/" enctype="multipart/form-data" method="post">
+			{% csrf_token %}
+			{{ ad_form.non_field_errors }}
+			<div class="choose-city">
+		        {{ ad_form.city.errors }}
+		        <label for="city">City</label>
+		        {{ ad_form.city }}
+		        <span>
+		        	If no your city => 
+		        	<a href="{% url 'addcity' %}">Add City</a>
+		        </span>
+		    </div>
+		    <br>
+
+		    <div class="fieldWrapper">
+		        {{ ad_form.title.errors }}
+		        <label for="title">Title</label>
+		        <input type="text" class="form-control" name="title" />
+		    </div>
+		    <br>
+
+		    <div class="fieldWrapper">
+		        {{ ad_form.date.errors }}
+		        <label for="date">Date</label>
+		        <div class="input-group">
+				  	<span class="input-group-addon" id="basic-addon3">YYYY-MM-DD</span>
+				  	<input type="text" class="form-control" name="date" />
+				</div>
+		    </div>
+		    <br>
+
+		    <div class="fieldWrapper">
+		        {{ ad_form.content.errors }}
+		        <label for="content">Content</label>
+		        <textarea class="form-control" name="content" rows="5"></textarea>
+		    </div>
+		    <br>
+
+		    <div class="fieldWrapper">
+		        {{ ad_form.contact.errors }}
+		        <label for="contact">Contacts</label>
+		        <input type="text" class="form-control" name="contact" />
+		    </div>
+		    <br>
+
+		    <p>Images (not necessarily)</p>
+	        {{ image_form_set.management_form }}
+	        {% for form in image_form_set.forms %}
+		        <div class="item">
+		        	{{ form.as_p }}
+		        	<p style="">
+		        		<a class="delete" href="#">Delete</a>
+		        	</p>
+		    	</div>
+		    {% endfor %}
+		    <p>
+		    	<a id="add" href="#">
+			  		<span class="glyphicon glyphicon-picture"></span>
+			  		Add another one photo
+			  	</a>
+			</p>
+
+		  	<br>
+
+		    <input class="reset" type="reset" value="Clear form">
+
+		    <input type="submit" value="Submit">
+
+		    {% if ad_form.non_field_errors %}
+		        {% for err in ad_form %}
+			        <div class="fieldWrapper">
+			          	<p class="form-error">{{ err }}</p>
+			          	<p class="form-error">{{ err.label_tag }} {{ field }}</p>
+			      	</div>
+		        {% endfor %}
+		    {% endif %}
+
+		    {% if image_form_set.non_field_errors %}
+		        {% for err in image_form %}
+			        <div class="fieldWrapper">
+			          	<p class="form-error">{{ err }}</p>
+			          	<p class="form-error">{{ err.label_tag }} {{ field }}</p>
+			      	</div>
+		        {% endfor %}
+		    {% endif %}
+		</form>
+	</div>
+
+{% endblock %}

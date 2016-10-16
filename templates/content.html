@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+	<h4>City: {{ city.title }}</h4>	
+
+	{% for ad in object_list %}
+		<div class="title">
+		    <a href="{% url 'advert' ad.id %}">{{ ad.title }}</a>
+		</div>
+
+		<div class="info">
+		    {{ ad.date }}
+		</div>
+
+		<div class="content">
+		    {{ ad.content|truncatewords:20 }}
+		</div>
+
+		<hr>
+		<br>
+	{% empty %}
+		<p>No ads here :(</p>
+	{% endfor %}
+
+	{% if paginator.num_pages > 1 %}
+		{% if page_obj.has_previous %}
+			<a href="?page={{ page_obj.previous_page_number }}">&larr;</a>
+		{% endif %}
+
+		<span class="current_page">{{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+
+		{% if page_obj.has_next %}
+			<a href="?page={{ page_obj.next_page_number }}">&rarr;</a>
+		{% endif %}
+	{% endif %}
+
+
+{% endblock %}

@@ -1,0 +1,55 @@
+<!DOCTYPE>
+
+{% load static %}
+
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+        <title>Advertising</title>
+        
+        <link rel="stylesheet" type="text/css" href="{% static "/css/bootstrap.css" %}">
+        <link rel="stylesheet" type="text/css" href="{% static "/css/main.css" %}">
+
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script src="http://malsup.github.com/jquery.form.js"></script> 
+
+        <script src="{% static "/js/addphoto.js" %}"></script>
+    </head>
+
+    <body>
+        <div class="maket container">
+            <div class="header">
+                <a href="{% url 'home' %}">
+                    <span>Advertising</span>
+                </a>
+            </div>
+
+            <div class="btn-addition">
+                <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                    <div class="btn-group" role="group">
+                        <a href="{% url 'addition' %}">
+                            <button type="button" class="btn btn-default">
+                                Add advertising 
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            </button>
+                        </a>
+                    </div>
+                    <div class="btn-group" role="group">
+                        <a href="{% url 'home' %}">
+                            <button type="button" class="btn btn-default">
+                                Cities 
+                                <span class="glyphicon glyphicon-th-list"></span>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main">
+                <div class="main-inner">
+                   {% block content %}{% endblock %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

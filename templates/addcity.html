@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+	<div class="add-city">
+		<form action="" method="post">
+			{% csrf_token %}
+			{{ form.non_field_errors }}
+		    <div class="addcity">
+		        {{ form.title.errors }}
+		        <div class="input-group">
+				  	<span class="input-group-addon" id="basic-addon3">City name</span>
+				  	<input type="text" class="form-control" name="title" />
+				</div>
+		    </div>
+		    <br>
+		    
+		    <p>
+		    	<input type="submit" value="Submit" />
+		    </p>
+		    {% if form.non_field_errors %}
+		        {% for err in form %}
+		        	<div class="fieldWrapper">
+		          		<p class="form-error">{{ err }}</p>
+		          		<p class="form-error">{{ err.label_tag }} {{ field }}</p>
+		      		</div>
+		        {% endfor %}
+		    {% endif %}
+
+		    {% for error in errors %}
+		     	{{ error }}
+		    {% endfor %}
+		</form>
+	</div>
+
+{% endblock %}

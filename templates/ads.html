@@ -1,0 +1,67 @@
+{% extends 'content.html' %}
+
+{% block content %}
+
+	<div class="city-ads">
+		<div class="alert alert-info" role="alert">
+			<h3>{{ city.title }}
+		</div>
+	</div>
+
+	{% for ad in ads %}
+		<div class="jumbotron">
+		  	<h2>
+		  		<a href="{% url 'advert' ad.id %}">{{ ad.title }}</a>
+		  	</h2>
+		  	<p>{{ ad.content|truncatewords:50 }}</p>
+		  	<p>
+		  		<a class="btn btn-primary btn-lg" href="{% url 'advert' ad.id %}" role="button">Learn more</a>
+		  	</p>
+		</div>
+	{% empty %}
+		<div class="no-ads">
+			<span>No ads here :(</span>
+		</div>
+	{% endfor %}
+
+	{% if is_paginated %}
+		<div class="pag">
+		  	<ul class="pagination">
+		    	{% if page_obj.has_previous %}
+		      		<li>
+		      			<a href="?page={{ page_obj.previous_page_number }}">&laquo;</a>
+		      		</li>
+		    	{% else %}
+		      		<li class="disabled">
+		      			<span>&laquo;</span>
+		      		</li>
+		    	{% endif %}
+
+		    	{% for i in paginator.page_range %}
+		      		{% if page_obj.number == i %}
+		        		<li class="active">
+		        			<span>
+		        				{{ i }} <span class="sr-only">(current)</span>
+		        			</span>
+		        		</li>
+		      		{% else %}
+		        		<li>
+		        			<a href="?page={{ i }}">{{ i }}</a>
+		        		</li>
+		      		{% endif %}
+		      	{% endfor %}
+
+		    	{% if page_obj.has_next %}
+		      		<li>
+		      			<a href="?page={{ page_obj.next_page_number }}">&raquo;</a>
+		      		</li>
+		    	{% else %}
+		      		<li class="disabled">
+		      			<span>&raquo;</span>
+		      		</li>
+		    	{% endif %}
+		  	</ul>
+		</div>
+	{% endif %}
+
+{% endblock %}

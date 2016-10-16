@@ -1,0 +1,201 @@
+a:hover {
+    text-decoration: none;
+}
+
+.maket {
+    width: 1220px;
+    height: 100vh;
+}
+
+.header {
+    width: 100%;
+    height:100px;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.header span {
+    font-size: 45px;
+    color: #cc0000
+}
+
+.header a:hover {
+    text-decoration: none;
+}
+
+.btn-addition {
+    width: 100%;
+    height: 50px;
+    vertical-align: middle;
+    padding-top: 10px;
+    text-align: center;
+}
+
+.btn-addition a:hover {
+    text-decoration: none;
+}
+
+.cities {
+    width: 100%;
+    padding-top: 20px;
+    padding-left: 350px;
+    padding-right: 350px;
+}
+
+ul.letter {
+    display: inline-block;
+    list-style: none;
+    -moz-column-count: 2;
+    -webkit-column-count: 2;
+    column-count: 2;
+    font-size: 16px;
+}
+
+.cities li {
+    cursor: pointer;
+    padding: 5px;
+}
+
+.list-group-item {
+    width: 200px;
+    text-align: center;
+}
+
+.main {
+    height: 400px;
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    min-height: 80vh;
+}
+
+.info {
+    width: 100%;
+    height: 75px;
+    padding-left: 200px;
+    padding-right: 200px;
+}
+
+.title {
+    width: 100%;
+    height: 50px;
+    text-align: center;
+}
+
+.content {
+    width: 100%;
+    padding-left: 200px;
+    padding-right: 200px;
+    font-size: 16px;
+}
+
+.contacts {
+    width: 100%;
+    height: 90px;
+    padding-top: 10px;
+    padding-left: 200px;
+    padding-right: 200px;
+}
+
+.contacts-inner {
+    border-left: solid 2px green;
+    padding: 5px;
+}
+
+.city-ads {
+    text-align: center;
+    padding-top: 20px;
+}
+
+.no-ads {
+    width: 100%;
+    text-align: center;
+    font-size: 25px;
+}
+
+.jumbotron {
+    border-bottom: solid 1px blue;
+}
+
+.images {
+    padding: 20px;
+    padding-left: 200px;
+    padding-right: 200px;
+    text-align: center;
+}
+
+.photo {
+    width: 100%;
+    padding: 5px;
+}
+
+.photo img {
+    max-width: 600px;
+}
+
+.addcity input {
+    text-transform: uppercase
+}
+
+.pag {
+    width: 100%;
+    text-align: center;
+}
+
+.add {
+    width: 100%;
+    padding-left: 200px;
+    padding-right: 200px;
+    padding-top: 20px;
+}
+
+#id_title {
+    width: 100%;
+}
+
+#id_content {
+    width: 100%;
+    display: block;
+}
+
+#id_contact {
+    width: 100%;
+}
+
+.add input {
+    display: block;
+}
+
+.choose-city {
+    width: 100%;
+    text-align: center;
+}
+
+.reset {
+    float: right;
+}
+
+.add-city {
+    width: 100%;
+    padding-left: 300px;
+    padding-right: 300px;
+    padding-top: 100px;
+}
+
+.success {
+    width: 100%;
+    text-align: center;
+    height: 200px;
+    padding: 0;
+    padding-top: 40px;
+}
+
+.success ul {
+    padding: 0;
+    list-style: none;
+}
+
+.success li {
+    font-size: 25px;
+    color: green;
+}

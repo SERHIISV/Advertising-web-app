@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% if messages %}
+        <div class="success">
+            <ul class="messages">
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                        <div class="alert alert-success" role="alert">
+                            <span class="glyphicon glyphicon-ok"></span> {{ message }}
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+
+    <div class="title">
+        <h2>{{ ad.title }}</h2>
+    </div>
+
+    <div class="info">
+        <h4>Publishing date: {{ ad.date }}</h4> 
+        <h4>
+            <a href="{% url 'adverts' ad.city.id %}">
+                <span class="label label-primary">{{ ad.city }}</span>
+            </a>
+        </h4>
+    </div>
+
+    <div class="content">
+        {{ ad.content }}
+    </div>
+
+    <div class="contacts">
+        <div class="contacts-inner">
+            <h4>Contacts:</h4> 
+            <h4>{{ ad.contact }}</h4>
+        </div>
+    </div>
+
+    <div class="images">
+        {% if images %}
+            {% for img in images %}
+                <div class="photo">
+                    <img src="{{ img.image.url }}" alt="{{ ad.title }}">
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+{% endblock %}
